@@ -2,6 +2,14 @@
 # Crumblinks Minecraft SDK
 
 Official **Minecraft server plugin** for sending player events to **Crumblinks attribution platform**.
+Download plugin:
+https://github.com/OneTwoPlay/crumblinks-minecraft-sdk/releases/latest
+
+Installation
+
+1. Download plugin
+2. Put the .jar file into /plugins
+3. Restart your Minecraft server
 
 Supported servers:
 
@@ -108,6 +116,9 @@ gradle build
 Output:
 
 build/libs/crumblinks-1.0.jar
+
+Download plugin:
+https://github.com/OneTwoPlay/crumblinks-minecraft-sdk/releases/latest
 
 ---
 
