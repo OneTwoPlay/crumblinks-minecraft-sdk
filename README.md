@@ -16,6 +16,13 @@ https://github.com/OneTwoPlay/crumblinks-minecraft-sdk/releases/latest/download/
 
 ---
 
+# Requirements
+
+* Java 17+
+* Internet connection to Crumblinks API
+
+---
+
 # Installation
 
 1. Download the latest plugin `.jar` file from Releases.
@@ -58,11 +65,19 @@ Where:
 * `tracker_id` — tracker id from the Crumblinks dashboard.
 * `base_url` — Crumblinks API base URL.
 
-The plugin automatically sends the API key as:
+---
+
+# Authentication
+
+The plugin authenticates requests using your Crumblinks API key.
+
+The plugin automatically sends the API key as a Bearer token:
 
 ```http
 Authorization: Bearer cl_XXXXXXXX
 ```
+
+You can generate your API key from the Crumblinks dashboard.
 
 ---
 
@@ -88,10 +103,10 @@ The plugin automatically sends events from your Minecraft server to Crumblinks.
 
 Currently supported events:
 
-| Event        | Description             |
-| ------------ | ----------------------- |
-| app_start    | Player joins the server |
-| app_purchase | Purchase event          |
+| Event        | Description                    |
+| ------------ | ------------------------------ |
+| app_start    | Player joins the server        |
+| app_purchase | Purchase or monetization event |
 
 ---
 
@@ -110,7 +125,7 @@ Currently supported events:
 Where:
 
 * `user_id` — player's Minecraft UUID.
-* `username` — optional player username.
+* `username` — optional display username.
 
 Important:
 
@@ -153,6 +168,26 @@ Example:
   "value": 9.99,
   "currency": "USD"
 }
+```
+
+---
+
+# Quick Test
+
+After starting the server, join the server with a Minecraft client.
+
+If configured correctly, the plugin will automatically send:
+
+```json
+{
+  "event_type": "app_start"
+}
+```
+
+to:
+
+```http
+POST https://crumblinks.com/api/v1/event
 ```
 
 ---
